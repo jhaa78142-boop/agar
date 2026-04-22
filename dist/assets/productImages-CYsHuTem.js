@@ -1,0 +1,1 @@
+const e={"chandan-natural":"/product-chandan-natural.webp","rose-gold":"/product-rose-gold.webp","chafa-green":"/product-chafa-green.webp","black-oudh":"/product-rose-gold.webp","camphor-jasmine":"/product-chafa-green.webp"},r="/product-chandan-natural.webp";function o(a){return e[a]||r}export{o as g};
