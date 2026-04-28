@@ -3,7 +3,7 @@ import { BLOGS } from '../constants';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 export const BlogPreview = () => {
-  const { ref: blogRef, isIntersecting: blogVisible } = useIntersectionObserver();
+  const { ref: blogRef, isIntersecting: blogVisible } = useIntersectionObserver({ threshold: 0.01 });
 
   return (
     <section style={{ padding: '100px 24px', background: 'var(--bg2)', overflow: 'hidden' }}>

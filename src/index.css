@@ -182,7 +182,11 @@ body {
   transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
 }
 
-.nav-link:hover::after {
+.nav-link.active {
+  color: var(--gold) !important;
+}
+
+.nav-link.active::after {
   transform: scaleX(1);
 }
 

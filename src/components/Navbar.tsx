@@ -10,16 +10,19 @@ interface NavbarProps {
 export const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState('/');
   const progress = useScrollProgress();
   const isMobile = useIsMobile();
 
   useEffect(() => {
+    setCurrentPath(window.location.pathname);
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
+    { label: 'HOME', href: '/' },
     { label: 'PRODUCTS', href: '/products' },
     { label: 'WHOLESALE', href: '/wholesale' },
     { label: 'ABOUT', href: '/about' },
@@ -75,35 +78,42 @@ export const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
           <a
             href="/"
             aria-label="White Stone Agarbatti — Home"
-            style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}
+            style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 14, flexShrink: 0 }}
           >
             <div style={{
-              width: scrolled ? 40 : 48,
-              height: scrolled ? 40 : 48,
+              width: scrolled ? 44 : 54,
+              height: scrolled ? 44 : 54,
               borderRadius: '50%',
               overflow: 'hidden',
               flexShrink: 0,
-              transition: 'width 0.35s, height 0.35s',
+              transition: 'all 0.4s cubic-bezier(0.22,1,0.36,1)',
+              border: `2px solid ${isDark ? 'var(--gold)' : 'var(--gold2)'}`,
               boxShadow: isDark
-                ? '0 0 0 2px rgba(201,168,76,0.55), 0 2px 14px rgba(201,168,76,0.25)'
-                : '0 0 0 2px rgba(201,168,76,0.45), 0 2px 12px rgba(201,168,76,0.18)',
+                ? '0 0 20px rgba(201,168,76,0.3)'
+                : '0 4px 15px rgba(107,58,42,0.1)',
+              background: '#fff',
+              padding: 2
             }}>
               <img
                 src="/ws-emblem.webp"
                 alt="White Stone WS Emblem"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center', display: 'block' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
               />
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <span style={{
-                fontFamily: 'var(--font-display)', fontWeight: 700,
-                fontSize: scrolled ? 13 : 15, letterSpacing: '0.12em',
-                color: 'var(--gold)', textTransform: 'uppercase', lineHeight: 1,
-                transition: 'font-size 0.35s',
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+              <span className="gold-shimmer" style={{
+                fontFamily: 'var(--font-display)', fontWeight: 800,
+                fontSize: scrolled ? 16 : 20, letterSpacing: '0.15em',
+                textTransform: 'uppercase', lineHeight: 1.1,
+                transition: 'all 0.4s cubic-bezier(0.22,1,0.36,1)',
+                textShadow: isDark ? '0 0 10px rgba(201,168,76,0.3)' : 'none',
               }}>WHITE STONE</span>
               <span style={{
-                fontFamily: 'var(--font-hindi)', fontSize: scrolled ? 11 : 13,
-                color: 'rgba(201,168,76,0.7)', lineHeight: 1, transition: 'font-size 0.35s',
+                fontFamily: 'var(--font-hindi)', fontSize: scrolled ? 12 : 14,
+                fontWeight: 500,
+                color: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(61,43,31,0.7)', 
+                lineHeight: 1, transition: 'all 0.4s cubic-bezier(0.22,1,0.36,1)',
+                letterSpacing: '0.05em'
               }}>व्हाइट स्टोन</span>
             </div>
           </a>

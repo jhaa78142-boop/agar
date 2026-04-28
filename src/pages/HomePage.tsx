@@ -45,7 +45,7 @@ const HERO_SPRING_DAMPING = 0.8;
 const PhotoGallery = () => {
   const [activeImg, setActiveImg] = useState(0);
   const [hovered, setHovered] = useState<number | null>(null);
-  const { ref: galleryRef, isIntersecting: galleryVisible } = useIntersectionObserver();
+  const { ref: galleryRef, isIntersecting: galleryVisible } = useIntersectionObserver({ threshold: 0.01 });
 
   // Auto-rotate active image
   useEffect(() => {
@@ -250,21 +250,21 @@ export const HomePage = () => {
     }
   });
 
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const [activeProduct, setActiveProduct] = useState(0);
   const [testimonialIdx, setTestimonialIdx] = useState(0);
   // scrollProgress: 0 = image1, 0.5 = image2, 1 = image3
   const [scrollProgress, setScrollProgress] = useState(0);
   // scrollWrapperRef: the tall div that makes the sticky hero scroll
   const scrollWrapperRef = useRef<HTMLDivElement>(null);
-  const { ref: statsRef, isIntersecting: statsVisible } = useIntersectionObserver();
-  const { ref: productsRef, isIntersecting: productsVisible } = useIntersectionObserver();
-  const { ref: brandRef, isIntersecting: brandVisible } = useIntersectionObserver();
-  const { ref: brandCardsRef, isIntersecting: brandCardsVisible } = useIntersectionObserver();
-  const { ref: videoRef, isIntersecting: videoVisible } = useIntersectionObserver({ threshold: 0.2 });
-  const { ref: testimonialsRef, isIntersecting: testimonialsVisible } = useIntersectionObserver();
-  const { ref: blogRef, isIntersecting: blogVisible } = useIntersectionObserver();
-  const { ref: ctaRef, isIntersecting: ctaVisible } = useIntersectionObserver({ threshold: 0.3 });
+  const { ref: statsRef, isIntersecting: statsVisible } = useIntersectionObserver({ threshold: 0.01 });
+  const { ref: productsRef, isIntersecting: productsVisible } = useIntersectionObserver({ threshold: 0.01 });
+  const { ref: brandRef, isIntersecting: brandVisible } = useIntersectionObserver({ threshold: 0.01 });
+  const { ref: brandCardsRef, isIntersecting: brandCardsVisible } = useIntersectionObserver({ threshold: 0.01 });
+  const { ref: videoRef, isIntersecting: videoVisible } = useIntersectionObserver({ threshold: 0.01 });
+  const { ref: testimonialsRef, isIntersecting: testimonialsVisible } = useIntersectionObserver({ threshold: 0.01 });
+  const { ref: blogRef, isIntersecting: blogVisible } = useIntersectionObserver({ threshold: 0.01 });
+  const { ref: ctaRef, isIntersecting: ctaVisible } = useIntersectionObserver({ threshold: 0.01 });
 
   // Physics-based smooth scroll — spring + damping for premium feel
   const rawProgressRef = useRef(0);
@@ -621,38 +621,77 @@ export const HomePage = () => {
                   transition: active ? 'none' : 'opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1)',
                 }}>
                   {/* EST pill */}
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 28, padding: '6px 16px', background: 'rgba(200,153,42,0.15)', borderRadius: 20, border: '1px solid rgba(201,168,76,0.4)', backdropFilter: 'blur(6px)',
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 28, padding: '8px 20px', background: 'rgba(200,153,42,0.12)', borderRadius: 4, border: '1px solid rgba(201,168,76,0.3)', backdropFilter: 'blur(10px)',
                     transform: `translateY(${-p * 40}px)`, // faster exit
                   }}>
-                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)' }} />
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: 11, letterSpacing: '0.12em', color: '#E8C96A', textTransform: 'uppercase' }}>EST. 2004 · CHIPLUN, INDIA</span>
+                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', boxShadow: '0 0 10px var(--gold)' }} />
+                    <span style={{ fontFamily: 'var(--font-display)', fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', color: '#E8C96A', textTransform: 'uppercase' }}>EST. 2004 · CHIPLUN, INDIA</span>
                   </div>
 
-                  <div style={{ fontFamily: 'var(--font-serif)', fontSize: 16, color: 'rgba(253,246,227,0.75)', fontStyle: 'italic', letterSpacing: '0.08em', marginBottom: 16, textTransform: 'uppercase',
-                    transform: `translateY(${-p * 30}px)`,
+                  <div style={{ marginBottom: 16, transform: `translateY(${-p * 30}px)` }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+                      <div style={{ height: 1, flex: 1, background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4))' }} />
+                      <span style={{ 
+                        fontFamily: 'var(--font-hindi)', 
+                        fontSize: 24, 
+                        color: 'rgba(201,168,76,0.95)', 
+                        fontWeight: 500,
+                        letterSpacing: '0.08em',
+                        whiteSpace: 'nowrap'
+                      }}>व्हाइट स्टोन अगरबत्ती</span>
+                      <div style={{ height: 1, flex: 1, background: 'linear-gradient(90deg, rgba(201,168,76,0.4), transparent)' }} />
+                    </div>
+                    <span style={{ 
+                      fontFamily: 'var(--font-serif)', 
+                      fontSize: 16, 
+                      color: 'rgba(253,246,227,0.7)', 
+                      fontStyle: 'italic', 
+                      letterSpacing: '0.2em', 
+                      textTransform: 'uppercase',
+                      display: 'block',
+                      textAlign: 'center'
+                    }}>The Essence of Divine Purity</span>
+                  </div>
+
+                  <h1 style={{
+                    fontFamily: 'var(--font-display)', fontWeight: 800,
+                    fontSize: 'clamp(48px,10vw,110px)', lineHeight: 0.85,
+                    marginBottom: 36, letterSpacing: '-0.02em',
+                    transform: `translateY(${-p * 20}px)`,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    position: 'relative'
                   }}>
-                    अगरबत्ती का अनुभव
-                  </div>
+                    <span style={{ 
+                      color: '#FFFBF0', 
+                      textShadow: '0 4px 30px rgba(0,0,0,0.5)',
+                      marginLeft: '-2px'
+                    }}>WHITE</span>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
+                      <span className="gold-shimmer" style={{ 
+                        filter: 'drop-shadow(0 4px 20px rgba(201,168,76,0.4))'
+                      }}>STONE</span>
+                      <span style={{ 
+                        fontFamily: 'var(--font-serif)', 
+                        fontSize: 'clamp(14px, 2vw, 24px)', 
+                        color: 'rgba(253,246,227,0.4)', 
+                        fontWeight: 300,
+                        fontStyle: 'italic',
+                        letterSpacing: '0.1em'
+                      }}>Agarbatti</span>
+                    </div>
+                    {/* Decorative underline for the brand */}
+                    <div style={{ 
+                      width: '100px', 
+                      height: '3px', 
+                      background: 'var(--gold)', 
+                      marginTop: 10,
+                      boxShadow: '0 0 15px var(--gold)'
+                    }} />
+                  </h1>
 
-                  <h1 style={{
-                    fontFamily: 'var(--font-display)', fontWeight: 700,
-                    fontSize: 'clamp(40px,8vw,88px)', lineHeight: 1.0,
-                    color: '#FFFBF0', marginBottom: 8, letterSpacing: '0.04em',
-                    textShadow: '0 2px 20px rgba(0,0,0,0.5)',
-                    // Title moves slowest — it's the "anchor"
-                    transform: `translateY(${-p * 20}px)`,
-                  }}>WHITE</h1>
-                  <h1 style={{
-                    fontFamily: 'var(--font-display)', fontWeight: 700,
-                    fontSize: 'clamp(40px,8vw,88px)', lineHeight: 1.0,
-                    color: 'transparent', WebkitTextStroke: '2px var(--gold)',
-                    marginBottom: 28, letterSpacing: '0.04em',
-                    transform: `translateY(${-p * 20}px)`,
-                  }}>STONE</h1>
-
-                  <p style={{ fontFamily: 'var(--font-serif)', fontSize: 18, color: 'rgba(253,246,227,0.88)', lineHeight: 1.7, marginBottom: 36, maxWidth: 460, textShadow: '0 1px 12px rgba(0,0,0,0.4)' }}>
-                    Premium handcrafted agarbatti from Chiplun, Maharashtra.
-                    Natural ingredients, divine fragrances, and twenty years of sacred tradition.
+                  <p style={{ fontFamily: 'var(--font-serif)', fontSize: 19, color: 'rgba(253,246,227,0.85)', lineHeight: 1.8, marginBottom: 40, maxWidth: 480, textShadow: '0 1px 12px rgba(0,0,0,0.4)', fontStyle: 'italic' }}>
+                    “Experience the divine aroma of Chiplun’s finest handcrafted incense. A twenty-year legacy of sacred tradition in every stick.”
                   </p>
 
                   <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 48 }}>
@@ -768,6 +807,99 @@ export const HomePage = () => {
         </section>
       </div>
       {/* END sticky hero wrapper */}
+
+      {/* ── HOME INTRODUCTION SECTION ── */}
+      <section style={{ 
+        padding: '120px 24px', 
+        background: 'var(--bg)', 
+        position: 'relative', 
+        zIndex: 5,
+        textAlign: 'center',
+        overflow: 'hidden'
+      }}>
+        {/* Background Decorative Element */}
+        <div style={{ 
+          position: 'absolute', 
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)', 
+          width: '80%', 
+          height: '80%', 
+          opacity: 0.03, 
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}>
+          <MandalaVisual />
+        </div>
+
+        <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+          <div style={{ 
+            display: 'inline-block', 
+            marginBottom: 32, 
+            padding: 12, 
+            borderRadius: '50%', 
+            border: '1px solid var(--gold)',
+            background: 'var(--bg2)',
+            boxShadow: '0 0 20px rgba(201,168,76,0.15)'
+          }}>
+            <img src="/ws-emblem.webp" alt="WS Emblem" style={{ width: 60, height: 60, objectFit: 'contain' }} />
+          </div>
+          
+          <h2 style={{ 
+            fontFamily: 'var(--font-display)', 
+            fontSize: 'clamp(32px, 5vw, 54px)', 
+            fontWeight: 800, 
+            color: 'var(--text-dark)',
+            marginBottom: 24,
+            letterSpacing: '0.1em',
+            lineHeight: 1.2
+          }}>
+            Welcome to <span className="gold-shimmer">WHITE STONE</span>
+          </h2>
+          
+          <div style={{ 
+            fontFamily: 'var(--font-hindi)', 
+            fontSize: 26, 
+            color: 'var(--gold2)', 
+            marginBottom: 32,
+            fontWeight: 500
+          }}>
+            व्हाइट स्टोन अगरबत्ती: शुद्धता और परंपरा का संगम
+          </div>
+          
+          <p style={{ 
+            fontFamily: 'var(--font-serif)', 
+            fontSize: 20, 
+            color: 'var(--text-mid)', 
+            lineHeight: 1.8, 
+            marginBottom: 48,
+            fontStyle: 'italic'
+          }}>
+            “At White Stone, we believe that fragrance is the bridge between the physical and the divine. 
+            For two decades, our master blenders in Chiplun have been crafting scents that transform 
+            houses into homes and rituals into sacred experiences.”
+          </p>
+          
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 40, flexWrap: 'wrap' }}>
+            {[
+              { label: 'AUTHENTIC', icon: '✦' },
+              { label: 'HANDCRAFTED', icon: '✦' },
+              { label: 'TRADITIONAL', icon: '✦' }
+            ].map((item, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                <span style={{ color: 'var(--gold)', fontSize: 12 }}>{item.icon}</span>
+                <span style={{ 
+                  fontFamily: 'var(--font-display)', 
+                  fontSize: 12, 
+                  letterSpacing: '0.2em', 
+                  color: 'var(--text-muted)',
+                  fontWeight: 600
+                }}>{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* MARQUEE */}
       <Marquee items={MARQUEE_ITEMS} />
