@@ -620,43 +620,11 @@ export const HomePage = () => {
                     : 'translateY(30px)',
                   transition: active ? 'none' : 'opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1)',
                 }}>
-                  {/* EST pill */}
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 28, padding: '8px 20px', background: 'rgba(200,153,42,0.12)', borderRadius: 4, border: '1px solid rgba(201,168,76,0.3)', backdropFilter: 'blur(10px)',
-                    transform: `translateY(${-p * 40}px)`, // faster exit
-                  }}>
-                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', boxShadow: '0 0 10px var(--gold)' }} />
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', color: '#E8C96A', textTransform: 'uppercase' }}>EST. 2004 · CHIPLUN, INDIA</span>
-                  </div>
-
-                  <div style={{ marginBottom: 16, transform: `translateY(${-p * 30}px)` }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-                      <div style={{ height: 1, flex: 1, background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4))' }} />
-                      <span style={{ 
-                        fontFamily: 'var(--font-hindi)', 
-                        fontSize: 24, 
-                        color: 'rgba(201,168,76,0.95)', 
-                        fontWeight: 500,
-                        letterSpacing: '0.08em',
-                        whiteSpace: 'nowrap'
-                      }}>व्हाइट स्टोन अगरबत्ती</span>
-                      <div style={{ height: 1, flex: 1, background: 'linear-gradient(90deg, rgba(201,168,76,0.4), transparent)' }} />
-                    </div>
-                    <span style={{ 
-                      fontFamily: 'var(--font-serif)', 
-                      fontSize: 16, 
-                      color: 'rgba(253,246,227,0.7)', 
-                      fontStyle: 'italic', 
-                      letterSpacing: '0.2em', 
-                      textTransform: 'uppercase',
-                      display: 'block',
-                      textAlign: 'center'
-                    }}>The Essence of Divine Purity</span>
-                  </div>
-
+                  {/* Brand Title */}
                   <h1 style={{
                     fontFamily: 'var(--font-display)', fontWeight: 800,
-                    fontSize: 'clamp(48px,10vw,110px)', lineHeight: 0.85,
-                    marginBottom: 36, letterSpacing: '-0.02em',
+                    fontSize: 'clamp(48px,10vw,110px)', lineHeight: 0.9,
+                    marginBottom: 24, letterSpacing: '-0.02em',
                     transform: `translateY(${-p * 20}px)`,
                     display: 'flex',
                     flexDirection: 'column',
@@ -680,15 +648,39 @@ export const HomePage = () => {
                         letterSpacing: '0.1em'
                       }}>Agarbatti</span>
                     </div>
-                    {/* Decorative underline for the brand */}
-                    <div style={{ 
-                      width: '100px', 
-                      height: '3px', 
-                      background: 'var(--gold)', 
-                      marginTop: 10,
-                      boxShadow: '0 0 15px var(--gold)'
-                    }} />
                   </h1>
+
+                  {/* EST pill */}
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 24, padding: '8px 20px', background: 'rgba(200,153,42,0.08)', borderRadius: 4, border: '1px solid rgba(201,168,76,0.2)', backdropFilter: 'blur(10px)',
+                    transform: `translateY(${-p * 35}px)`,
+                  }}>
+                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', boxShadow: '0 0 10px var(--gold)' }} />
+                    <span style={{ fontFamily: 'var(--font-display)', fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', color: '#E8C96A', textTransform: 'uppercase' }}>EST. 2004 · CHIPLUN, INDIA</span>
+                  </div>
+
+                  {/* Hindi Text & Tagline */}
+                  <div style={{ marginBottom: 40, transform: `translateY(${-p * 30}px)` }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+                      <span style={{ 
+                        fontFamily: 'var(--font-hindi)', 
+                        fontSize: 26, 
+                        color: 'rgba(201,168,76,0.95)', 
+                        fontWeight: 500,
+                        letterSpacing: '0.04em',
+                        whiteSpace: 'nowrap'
+                      }}>व्हाइट स्टोन अगरबत्ती</span>
+                      <div style={{ height: 1, flex: 1, background: 'linear-gradient(90deg, rgba(201,168,76,0.4), transparent)' }} />
+                    </div>
+                    <span style={{ 
+                      fontFamily: 'var(--font-serif)', 
+                      fontSize: 18, 
+                      color: 'rgba(253,246,227,0.7)', 
+                      fontStyle: 'italic', 
+                      letterSpacing: '0.15em', 
+                      textTransform: 'uppercase',
+                      display: 'block'
+                    }}>The Essence of Divine Purity</span>
+                  </div>
 
                   <p style={{ fontFamily: 'var(--font-serif)', fontSize: 19, color: 'rgba(253,246,227,0.85)', lineHeight: 1.8, marginBottom: 40, maxWidth: 480, textShadow: '0 1px 12px rgba(0,0,0,0.4)', fontStyle: 'italic' }}>
                     “Experience the divine aroma of Chiplun’s finest handcrafted incense. A twenty-year legacy of sacred tradition in every stick.”
