@@ -43,7 +43,7 @@ export const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
     ? isDark ? '0 2px 20px rgba(0,0,0,0.5)' : '0 2px 20px rgba(107,58,42,0.06)'
     : 'none';
 
-  const navLinkColor = isDark ? 'var(--muted)' : '#3D2B1F';
+  const navLinkColor = 'var(--gold)';
 
   const WA_MESSAGE = encodeURIComponent('Hi, I found White Stone Agarbatti online. I would like to know more about your products and pricing.');
 
@@ -122,8 +122,12 @@ export const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
           {!isMobile && (
             <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
               {navLinks.map(item => (
-                <a key={item.label} href={item.href} className="nav-link" style={{ color: navLinkColor }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--gold)'}
+                <a 
+                  key={item.label} 
+                  href={item.href} 
+                  className={`nav-link ${currentPath === item.href ? 'active' : ''}`}
+                  style={{ color: navLinkColor }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--gold3)'}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = navLinkColor}
                 >{item.label}</a>
               ))}
@@ -175,10 +179,14 @@ export const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
             boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
           }}>
             {navLinks.map(item => (
-              <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)}
+              <a 
+                key={item.label} 
+                href={item.href} 
+                onClick={() => setMenuOpen(false)}
+                className={currentPath === item.href ? 'active' : ''}
                 style={{
                   display: 'block', padding: '14px 0', fontFamily: 'var(--font-display)',
-                  fontSize: 14, letterSpacing: '0.1em', color: isDark ? 'var(--cream)' : '#2C1A0E',
+                  fontSize: 14, letterSpacing: '0.1em', color: 'var(--gold)',
                   textDecoration: 'none', textTransform: 'uppercase',
                   borderBottom: '1px solid var(--border)', transition: 'color 0.2s',
                 }}
