@@ -81,23 +81,24 @@ export const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
             style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 14, flexShrink: 0 }}
           >
             <div style={{
-              width: scrolled ? 44 : 54,
-              height: scrolled ? 44 : 54,
+              width: scrolled ? 40 : 48,
+              height: scrolled ? 40 : 48,
               borderRadius: '50%',
               overflow: 'hidden',
               flexShrink: 0,
               transition: 'all 0.4s cubic-bezier(0.22,1,0.36,1)',
-              border: `2px solid ${isDark ? 'var(--gold)' : 'var(--gold2)'}`,
+              border: `1.5px solid ${isDark ? 'var(--gold)' : 'var(--gold2)'}`,
               boxShadow: isDark
-                ? '0 0 20px rgba(201,168,76,0.3)'
-                : '0 4px 15px rgba(107,58,42,0.1)',
-              background: '#fff',
-              padding: 2
+                ? '0 0 15px rgba(201,168,76,0.2)'
+                : '0 4px 12px rgba(107,58,42,0.08)',
+              background: 'rgba(255,255,255,0.05)',
+              backdropFilter: 'blur(4px)',
+              padding: 0
             }}>
               <img
                 src="/ws-emblem.webp"
                 alt="White Stone WS Emblem"
-                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>

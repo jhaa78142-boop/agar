@@ -81,8 +81,7 @@ export const ProductsPage = () => {
                   ))}
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, color: 'var(--gold)' }}>₹{p.price}</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
                   <span style={{ fontFamily: 'var(--font-sans)', fontSize: 12, letterSpacing: '0.1em', color: 'var(--gold)' }}>DISCOVER →</span>
                 </div>
               </a>

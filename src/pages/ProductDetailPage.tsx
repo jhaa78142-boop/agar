@@ -77,7 +77,6 @@ export const ProductDetailPage = () => {
               <h1 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 700, fontSize: 'clamp(32px,4vw,52px)', color: 'var(--text-dark)', marginBottom: 20, lineHeight: 1.1 }}>{product.name}</h1>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 28 }}>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: 32, fontWeight: 700, color: 'var(--gold)' }}>₹{product.price}</span>
                 <span style={{ fontFamily: 'var(--font-sans)', fontSize: 13, color: 'var(--text-muted)' }}>Per box · {product.sticks}</span>
               </div>
 
@@ -113,7 +112,7 @@ export const ProductDetailPage = () => {
                 </div>
                 <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
                   <a
-                    href={`https://wa.me/919226915311?text=Hi%2C%20I%20would%20like%20to%20order%20${encodeURIComponent(product.name)}%20(₹${product.price})%20from%20White%20Stone%20Agarbatti.%20Please%20confirm%20availability%20and%20delivery%20details.`}
+                    href={`https://wa.me/919226915311?text=Hi%2C%20I%20would%20like%20to%20order%20${encodeURIComponent(product.name)}%20from%20White%20Stone%20Agarbatti.%20Please%20confirm%20availability%20and%20delivery%20details.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-whatsapp"
@@ -162,7 +161,7 @@ export const ProductDetailPage = () => {
                     <img src={getProductImage(op.id)} alt={op.name} loading="lazy" width={140} height={140} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                   </div>
                   <div style={{ fontFamily: 'var(--font-serif)', fontSize: 16, fontWeight: 600, fontStyle: 'italic', color: 'var(--text-dark)', marginBottom: 8 }}>{op.name}</div>
-                  <div style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--gold)', fontWeight: 700 }}>₹{op.price}</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: 11, color: 'var(--gold)', letterSpacing: '0.1em' }}>VIEW DETAILS →</div>
                 </a>
               ))}
             </div>

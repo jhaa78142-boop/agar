@@ -611,86 +611,112 @@ export const HomePage = () => {
                 opacity: contentOpacity,
                 pointerEvents: p > 0.15 ? 'none' : 'auto',
               }}>
-                {/* Left content — slides up and fades */}
+                {/* Left content — professional layout with precision spacing */}
                 <div style={{
-                  flex: '1 1 400px', maxWidth: 560,
+                  flex: '1 1 500px', maxWidth: 640,
                   opacity: active ? 1 : 0,
                   transform: active
-                    ? `translateY(${-p * 80}px)`
+                    ? `translateY(${-p * 60}px)`
                     : 'translateY(30px)',
                   transition: active ? 'none' : 'opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 0
                 }}>
-                  {/* Brand Title */}
-                  <h1 style={{
-                    fontFamily: 'var(--font-display)', fontWeight: 800,
-                    fontSize: 'clamp(48px,10vw,110px)', lineHeight: 0.9,
-                    marginBottom: 24, letterSpacing: '-0.02em',
-                    transform: `translateY(${-p * 20}px)`,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    position: 'relative'
+                  {/* Information Row */}
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: 24, 
+                    marginBottom: 32,
+                    transform: `translateY(${-p * 30}px)` 
                   }}>
-                    <span style={{ 
-                      color: '#FFFBF0', 
-                      textShadow: '0 4px 30px rgba(0,0,0,0.5)',
-                      marginLeft: '-2px'
-                    }}>WHITE</span>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
-                      <span className="gold-shimmer" style={{ 
-                        filter: 'drop-shadow(0 4px 20px rgba(201,168,76,0.4))'
-                      }}>STONE</span>
-                      <span style={{ 
-                        fontFamily: 'var(--font-serif)', 
-                        fontSize: 'clamp(14px, 2vw, 24px)', 
-                        color: 'rgba(253,246,227,0.4)', 
-                        fontWeight: 300,
-                        fontStyle: 'italic',
-                        letterSpacing: '0.1em'
-                      }}>Agarbatti</span>
+                    {/* EST pill */}
+                    <div style={{ 
+                      display: 'inline-flex', alignItems: 'center', gap: 10, padding: '6px 16px', 
+                      background: 'rgba(255,255,255,0.06)', borderRadius: 100, 
+                      border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)'
+                    }}>
+                      <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#FFF' }} />
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: 10, fontWeight: 600, letterSpacing: '0.15em', color: '#FFF' }}>EST. 2004</span>
                     </div>
-                  </h1>
-
-                  {/* EST pill */}
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 24, padding: '8px 20px', background: 'rgba(200,153,42,0.08)', borderRadius: 4, border: '1px solid rgba(201,168,76,0.2)', backdropFilter: 'blur(10px)',
-                    transform: `translateY(${-p * 35}px)`,
-                  }}>
-                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', boxShadow: '0 0 10px var(--gold)' }} />
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', color: '#E8C96A', textTransform: 'uppercase' }}>EST. 2004 · CHIPLUN, INDIA</span>
+                    <div style={{ height: 1, width: 40, background: 'rgba(255,255,255,0.3)' }} />
+                    <span style={{ 
+                      fontFamily: 'var(--font-display)', fontSize: 10, 
+                      letterSpacing: '0.15em', color: 'rgba(255,255,255,0.6)', 
+                      textTransform: 'uppercase' 
+                    }}>CHIPLUN, MAHARASHTRA</span>
                   </div>
 
-                  {/* Hindi Text & Tagline */}
-                  <div style={{ marginBottom: 40, transform: `translateY(${-p * 30}px)` }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+                  {/* Hindi & Brand Title Group */}
+                  <div style={{ position: 'relative', marginBottom: 40, transform: `translateY(${-p * 20}px)` }}>
+                    <div style={{ 
+                      fontFamily: 'var(--font-hindi)', 
+                      fontSize: 18, 
+                      color: 'rgba(255,255,255,0.8)', 
+                      fontWeight: 500,
+                      letterSpacing: '0.05em',
+                      marginBottom: 16
+                    }}>अगरबत्ती का अनुभव</div>
+                    
+                    <h1 style={{
+                      fontFamily: 'var(--font-display)', fontWeight: 800,
+                      fontSize: 'clamp(54px, 12vw, 130px)', 
+                      lineHeight: 0.8,
+                      letterSpacing: '-0.03em',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      margin: 0
+                    }}>
                       <span style={{ 
-                        fontFamily: 'var(--font-hindi)', 
-                        fontSize: 26, 
-                        color: 'rgba(201,168,76,0.95)', 
-                        fontWeight: 500,
-                        letterSpacing: '0.04em',
-                        whiteSpace: 'nowrap'
-                      }}>व्हाइट स्टोन अगरबत्ती</span>
-                      <div style={{ height: 1, flex: 1, background: 'linear-gradient(90deg, rgba(201,168,76,0.4), transparent)' }} />
-                    </div>
-                    <span style={{ 
+                        color: '#FFF', 
+                        textShadow: '0 10px 40px rgba(0,0,0,0.4)',
+                        marginLeft: '-4px'
+                      }}>WHITE</span>
+                      <span style={{ 
+                        color: '#FFF', 
+                        textShadow: '0 10px 40px rgba(0,0,0,0.4)',
+                        marginLeft: '-4px'
+                      }}>STONE</span>
+                    </h1>
+                  </div>
+
+                  {/* Tagline */}
+                  <div style={{ marginBottom: 40, transform: `translateY(${-p * 40}px)` }}>
+                    <div style={{ 
                       fontFamily: 'var(--font-serif)', 
                       fontSize: 18, 
-                      color: 'rgba(253,246,227,0.7)', 
+                      color: 'rgba(255,255,255,0.7)', 
                       fontStyle: 'italic', 
-                      letterSpacing: '0.15em', 
-                      textTransform: 'uppercase',
-                      display: 'block'
-                    }}>The Essence of Divine Purity</span>
+                      letterSpacing: '0.12em', 
+                      textTransform: 'uppercase'
+                    }}>The Essence of Divine Purity</div>
                   </div>
 
-                  <p style={{ fontFamily: 'var(--font-serif)', fontSize: 19, color: 'rgba(253,246,227,0.85)', lineHeight: 1.8, marginBottom: 40, maxWidth: 480, textShadow: '0 1px 12px rgba(0,0,0,0.4)', fontStyle: 'italic' }}>
-                    “Experience the divine aroma of Chiplun’s finest handcrafted incense. A twenty-year legacy of sacred tradition in every stick.”
+                  {/* Description */}
+                  <p style={{ 
+                    fontFamily: 'var(--font-sans)', fontSize: 16, 
+                    color: 'rgba(255,255,255,0.85)', lineHeight: 1.6, 
+                    marginBottom: 48, maxWidth: 520,
+                    transform: `translateY(${-p * 50}px)`
+                  }}>
+                    Premium handcrafted agarbatti from Chiplun, Maharashtra. Natural ingredients, divine fragrances, and twenty years of sacred tradition.
                   </p>
 
-                  <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 48 }}>
-                    <a href="https://wa.me/919226915311?text=Hi%2C%20I%20found%20White%20Stone%20Agarbatti%20online.%20I%20would%20like%20to%20know%20more%20about%20your%20products%20and%20pricing." target="_blank" rel="noopener noreferrer" className="btn-primary">
+                  {/* Actions */}
+                  <div style={{ 
+                    display: 'flex', gap: 20, flexWrap: 'wrap', marginBottom: 56,
+                    transform: `translateY(${-p * 60}px)` 
+                  }}>
+                    <a href="https://wa.me/919226915311?text=Hi%2C%20I%20found%20White%20Stone%20Agarbatti%20online.%20I%20would%20like%20to%20know%20more%20about%20your%20products%20and%20pricing." 
+                       target="_blank" rel="noopener noreferrer" className="btn-primary"
+                       style={{ boxShadow: '0 10px 30px rgba(201,168,76,0.2)' }}>
                       ORDER ON WHATSAPP
                     </a>
-                    <a href="/products" className="btn-outline" style={{ color: '#FFFBF0', borderColor: 'rgba(253,246,227,0.5)' }}>EXPLORE PRODUCTS</a>
+                    <a href="/products" className="btn-outline" 
+                       style={{ color: '#FFFBF0', borderColor: 'rgba(253,246,227,0.3)', backdropFilter: 'blur(4px)' }}>
+                      EXPLORE PRODUCTS
+                    </a>
                   </div>
 
                   {/* Stats */}
@@ -738,7 +764,6 @@ export const HomePage = () => {
                       <div style={{ fontFamily: 'var(--font-sans)', fontSize: 11, color: 'rgba(201,168,76,0.7)', letterSpacing: '0.08em', marginBottom: 6 }}>FEATURED PRODUCT</div>
                       <div style={{ fontFamily: 'var(--font-serif)', fontSize: 18, fontWeight: 600, color: '#FFFBF0', fontStyle: 'italic' }}>{heroProduct.name}</div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 8 }}>
-                        <span style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, color: 'var(--gold)' }}>₹{heroProduct.price}</span>
                         <span style={{ fontFamily: 'var(--font-sans)', fontSize: 12, color: 'rgba(253,246,227,0.5)' }}>{heroProduct.sticks} · {heroProduct.burnTime}</span>
                       </div>
                     </div>
